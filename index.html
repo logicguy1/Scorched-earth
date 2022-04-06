@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Scortch Earth</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+</head>
+
+<body>
+  <audio id="beep" loop autoplay>
+    <source src="./badppl/song.mp4" type="audio/mp3" />
+  </audio>
+  <div id="wrapper">
+    <canvas id="myCanvas" width="1024" height="400">
+    </canvas>
+    <table>
+      <tr>
+        <td><br><button id="skudKnap">Skud</button></td>
+        <td>
+          <div class="myslider">
+            <h2>Hastighed</h2><input type="range" min="1" max="100" value="50" class="slider" id="hastighed">
+            <p id="hast"></p>
+          </div>
+        </td>
+        <td>
+          <div class="myslider">
+            <h2>Vinkel</h2><input type="range" min="10" max="80" value="40" class="slider" id="vinkel">
+            <p id="vink"></p>
+          </div>
+        </td>
+        <td>
+          <div class="myslider">
+            <h2>Score</h2>
+            <p id="scor">0</p>
+            <p> </p>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+
+  </div>
+</body>
+
+</html>

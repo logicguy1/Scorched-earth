@@ -1,0 +1,16 @@
+#wrapper {
+	background-color: yellow;
+	width: 1024px;
+	min-height: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#myCanvas {
+	background-color: grey;	
+}
+
+button{
+	margin: 10px;
+}
+	
+
