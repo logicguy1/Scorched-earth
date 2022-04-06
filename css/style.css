@@ -3,15 +3,35 @@
   margin: 0;
 }
 
+body {
+  background-color: #F4EAE6;
+}
+
 #wrapper {
-	background-color: yellow;
+	background-color: #E57F84;
 	width: 1024px;
-	min-height: 700px;
+	min-height: 500px;
 	margin-left: auto;
 	margin-right: auto;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
+
 #myCanvas {
-	background-color: grey;	
+	background-color: #acdbe0;	
+}
+
+#skudKnap{
+  background-color: #F4EAE6;
+  padding: 10px;
+  border-radius: 10px;
+  width: 150px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#skudKnap:hover{
+  background-color: #dfd7d4;
 }
 
 button {
