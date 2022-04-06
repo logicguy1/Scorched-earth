@@ -11,6 +11,9 @@ window.onload=function(){
 	var kanon = new Image();
 	kanon.src="./img/kanon.png";
 
+	var tux = new Image();
+	tux.src="./tux.png";
+
 	var enemie = new Image();
 	enemie.src="./badppl/mac.png";
 	var eniX = 300 + ((canvas.width - 500) * Math.random());
@@ -51,6 +54,7 @@ window.onload=function(){
 		vinkeloutput.innerHTML = this.value; // Viser vinklen på siden
 
 		context.clearRect(0,0,1024,800);
+		context.drawImage(tux, 0,yconst-30);
 		context.drawImage(enemie, eniX,canvas.height - 65);
 
     context.save();
@@ -68,10 +72,19 @@ window.onload=function(){
 	    animate();
 		}
 	});
+
+  $("#start").click(function(){
+    document.getElementsByClassName("start")[0].style.visibility = "hidden";
+    document.getElementById("screen").style.visibility = "hidden";
+
+    document.getElementById("beep").play();
+
+  });
 	
 	// Viser kanon når siden loades
 	kanon.onload = function(){
 		context.clearRect(0,0,canvas.width,canvas.height);
+		context.drawImage(tux, 0,yconst-30);
     context.save();
     context.translate(xconst, yconst);
     context.rotate(degrees_to_radians(vinkel.value - vconst) * -1);
@@ -97,6 +110,7 @@ window.onload=function(){
 
 		if (skud == true){
 		  context.clearRect(0,0,canvas.width,canvas.height);
+		  context.drawImage(tux, 0,yconst-30);
 			context.drawImage(enemie, eniX,canvas.height - 65);
 
 			// Kuglen tegnes
@@ -131,6 +145,7 @@ window.onload=function(){
 				counter = 0;
 			};
 		};
+		context.drawImage(tux, 0,yconst-30);
 
     context.save();
     context.translate(xconst, yconst);
