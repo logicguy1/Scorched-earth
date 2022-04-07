@@ -22,6 +22,7 @@ window.onload=function(){
   document.getElementById('beep').volume = 0.2;
 
   var score = 0;
+  var miss = 0;
 	var skud = false;
 	var skudKnap = $("#skudKnap");
 	var radius = 10;
@@ -67,6 +68,7 @@ window.onload=function(){
 	//Skud
 	skudKnap.click(function(){
 		if (!skud) {
+      miss++;
 		  skud = true;
 	  	lastUpdate = Date.now();
 	    animate();
@@ -79,10 +81,6 @@ window.onload=function(){
 
     document.getElementById("beep").play();
 
-  });
-	
-	// Viser kanon når siden loades
-	kanon.onload = function(){
 		context.clearRect(0,0,canvas.width,canvas.height);
 		context.drawImage(tux, 0,yconst-30);
     context.save();
@@ -90,10 +88,9 @@ window.onload=function(){
     context.rotate(degrees_to_radians(vinkel.value - vconst) * -1);
 		context.drawImage(kanon,-xconst,0);
     context.restore();
-	}
-	enemie.onload = function(){
 		context.drawImage(enemie, eniX,canvas.height - 65);
-	}
+  });
+	
 
 	function animate(){
 		var dt = Date.now() - lastUpdate;
@@ -127,7 +124,7 @@ window.onload=function(){
         death.load();
         death.play();
 
-        score += 1;
+        score++;
 			  document.getElementById("scor").innerHTML = score;
       }
 
@@ -143,6 +140,9 @@ window.onload=function(){
 				y = yconst;
 				skud = false;
 				counter = 0;
+
+        miss++;
+			  document.getElementById("acc").innerHTML = Math.round(score/miss*100)/100;
 			};
 		};
 		context.drawImage(tux, 0,yconst-30);
