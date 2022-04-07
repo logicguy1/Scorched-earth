@@ -28,6 +28,7 @@ window.onload=function(){
 	var radius = 10;
 
   var counter = 0;
+  var hit = false;
 
 	var xconst = 100;
 	var yconst = canvas.height - 80;
@@ -70,6 +71,7 @@ window.onload=function(){
 		if (!skud) {
       miss++;
 		  skud = true;
+      hit = false;
 	  	lastUpdate = Date.now();
 	    animate();
 		}
@@ -97,7 +99,6 @@ window.onload=function(){
 
 		// Kuglens koordinater
 		counter += 0.02*dt;
-		console.log(dt)
 
 		x = slider.value * Math.cos(degrees_to_radians(vinkel.value)) * counter;
 		x += xconst
@@ -117,7 +118,8 @@ window.onload=function(){
 			context.fill();	
 
 			// Collision detection
-			if (x > eniX && x < eniX + 75 && y > canvas.height - 65){
+			if (x > eniX && x < eniX + 75 && y > canvas.height - 65 && !hit){
+        hit = true;
 				console.log("HIT");
 				eniX = 300 + ((canvas.width - 500) * Math.random());
 
@@ -141,8 +143,8 @@ window.onload=function(){
 				skud = false;
 				counter = 0;
 
-        miss++;
-			  document.getElementById("acc").innerHTML = Math.round(score/miss*100)/100;
+        console.log(miss, score)
+			  document.getElementById("acc").innerHTML = Math.round(score/(miss)*100)/100;
 			};
 		};
 		context.drawImage(tux, 0,yconst-30);
